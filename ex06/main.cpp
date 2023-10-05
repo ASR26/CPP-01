@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asolano- <asolano-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 13:35:19 by asolano-          #+#    #+#             */
-/*   Updated: 2023/10/05 10:32:14 by asolano-         ###   ########.fr       */
+/*   Created: 2023/10/05 10:12:07 by asolano-          #+#    #+#             */
+/*   Updated: 2023/10/05 11:08:46 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#include "Harl.hpp"
 
-#include <iostream>
-
-
-class Harl
+int	main(int argc, char **argv)
 {
-private:
-	void	debug(void);
-	void	info(void);
-	void	warning(void);
-	void	error(void);
-	void	def(void);
-public:
-	Harl();
-	~Harl();
-	void complain(std::string level);
-};
-
-#endif
+	(void) argv;
+	if (argc != 2)
+	{
+		std::cout << "Wrong ammount of arguments, just need 1 " << std::endl;
+		return (1);
+	}
+	
+	Harl harl = Harl();
+	harl.complain(argv[1]);
+}

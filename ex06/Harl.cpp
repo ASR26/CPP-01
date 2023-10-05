@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 13:35:22 by asolano-          #+#    #+#             */
-/*   Updated: 2023/10/05 10:42:09 by asolano-         ###   ########.fr       */
+/*   Updated: 2023/10/05 10:55:58 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,32 @@ void Harl::complain(std::string level)
 {
 	void	(Harl::*func[5])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error, &Harl::def};
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	for (int i = 0; i < 5; i++)
+	int i = 0;
+	while (i < 4)
 	{
 		if (!level.compare(levels[i]))
-		{
-			(this->*(func[i]))();
-			return ;
-		}
-		if (i == 4)
-			(this->*(func[i]))();
+			break;
+		i++;
+	}
+	switch (i)
+	{
+		case 0:
+			std::cout << "[" << levels[0] << "]" << std::endl;
+			(this->*(func[0]))();
+		case 1:
+			std::cout << "[" << levels[1] << "]" << std::endl;
+			(this->*(func[1]))();
+		case 2:
+			std::cout << "[" << levels[2] << "]" << std::endl;
+			(this->*(func[2]))();
+		case 3:
+			std::cout << "[" << levels[3] << "]" << std::endl;
+			(this->*(func[3]))();
+			break ;
+		default:
+			std::cout << "[DEFAULT]" << std::endl;
+			(this->*(func[4]))();
+		break;
 	}
 }
 
