@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 11:15:37 by asolano-          #+#    #+#             */
-/*   Updated: 2023/10/03 13:46:44 by asolano-         ###   ########.fr       */
+/*   Updated: 2023/10/06 08:27:18 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main()
 		HumanB jim("Jim");
 		jim.attack();
 		jim.setWeapon(club);
+		jim.attack();
 		club.setType("some other type of club");
 		jim.attack();
 	}
